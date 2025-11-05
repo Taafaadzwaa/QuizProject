@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>General knowledge quiz game</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="game-container">
+    <h1 class="game-title">General knowledge quiz</h1>
+    <p class="subtitle">Choose your challenge and test your brain power!</p>
+
+    <!-- Buttons for levels , Taffi  -->
+    <div class="levels">
+      <button class="level-btn easy" data-level="easy">EASY</button>
+      <button class="level-btn mid" data-level="mid">Mid</button>
+      <button class="level-btn hard" data-level="hard">HARD</button>
+      <button class="level-btn advanced" data-level="advanced">ADVANCED</button>
+    </div>
+  </div>
+
+ <!-- Quiz part-->
+  <div class="quiz hidden">
+    <h2 id="level-title"></h2>
+    <div id="question-container"></div>
+    <div id="options-container"></div>
+    <button id="next-btn" class="hidden">Next</button>
+  </div>
+
+  <!-- the results displayed -->
+  <div class="result hidden">
+    <h2>Your Score</h2>
+    <p id="score"></p>
+    <button id="home-btn">Back to Home</button>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,153 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500;700&display=swap');
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background:  #08597c;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  overflow: hidden;
+}
+
+/* landing/ front page */
+.game-container {
+  text-align: center;
+  background: rgba(255, 255, 255, 0.08);
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(12px);
+  padding: 40px 30px;
+  border-radius: 25px;
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.3);
+  width: 90%;
+  max-width: 550px;
+  animation: float 3s ease-in-out infinite;
+}
+
+/*to make the container float*/
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+.game-title {
+  font-size: 2rem;
+  margin-bottom: 10px;
+  color: #00e0ff;
+  text-shadow: #00e0ff;
+}
+
+.subtitle {
+  font-size: 1.1rem;
+  color: #cbd5e1;
+  margin-bottom: 30px;
+}
+
+/*styling of the level buttons*/
+.levels {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.level-btn {
+  padding: 15px 20px;
+  border: none;
+  border-radius: 12px;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  color: #fff;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  box-shadow: 0 0 20px rgba(255,255,255,0.1);
+}
+
+.level-btn.easy {
+  background:  #22c55e;
+}
+.level-btn.mid {
+  background: #3b82f6;
+}
+.level-btn.hard {
+  background: #fb923c;
+}
+.level-btn.advanced {
+  background:#e42323;
+}
+
+.level-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 25px rgba(255,255,255,0.3);
+}
+
+/* quiz area */
+.quiz, .result {
+  text-align: center;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  padding: 30px;
+  border-radius: 20px;
+  width: 90%;
+  max-width: 550px;
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.3);
+}
+
+#question-container {
+  font-size: 1.2rem;
+  margin-bottom: 20px;
+}
+
+.option {
+  background: rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  margin: 10px 0;
+  padding: 12px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.3s;
+  color: #fff;
+}
+
+.option:hover {
+  background: rgba(255, 255, 255, 0.25);
+}
+
+.option.correct {
+  background-color: #22c55e;
+  border-color: #22c55e;
+}
+
+.option.wrong {
+  background-color: #ef4444;
+  border-color: #ef4444;
+}
+
+#next-btn, #home-btn {
+  background: #00e0ff;
+  color: #0f2027;
+  padding: 12px 25px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+#next-btn:hover, #home-btn:hover {
+  background: #00b4cc57;
+  color: #fff;
+}
+
+/* animations area */
+.hidden {
+  display: none;
+}
+
+.result h2 {
+  color: #00e0ff;
+  text-shadow: 0 0 10px #00e1ff54;
+}
