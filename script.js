@@ -1,121 +1,164 @@
-// Selecting elements
-const levelButtons = document.querySelectorAll('.level-btn');
-const homeContainer = document.querySelector('.game-container');
-const quizContainer = document.querySelector('.quiz');
-const resultContainer = document.querySelector('.result');
-const levelTitle = document.getElementById('level-title');
-const questionContainer = document.getElementById('question-container');
-const optionsContainer = document.getElementById('options-container');
-const nextBtn = document.getElementById('next-btn');
-const scoreDisplay = document.getElementById('score');
-const homeBtn = document.getElementById('home-btn');
+const levels = document.querySelectorAll(".level-btn");
+const gameContainer = document.querySelector(".game-container");
+const quiz = document.querySelector(".quiz");
+const result = document.querySelector(".result");
+const questionContainer = document.getElementById("question-container");
+const optionsContainer = document.getElementById("options-container");
+const nextBtn = document.getElementById("next-btn");
+const scoreDisplay = document.getElementById("score");
+const homeBtn = document.getElementById("home-btn");
+const levelTitle = document.getElementById("level-title");
 
-let currentLevel = '';
+let currentLevel = "";
 let currentQuestionIndex = 0;
 let score = 0;
+let timer;
+let timeLeft = 0;
 
-// === EASY QUESTIONS ===
-const easyQuestions = [
-  {
-    q: "What color is a ripe banana?",
-    options: ["Green", "Yellow", "Red", "Purple"],
-    answer: "Yellow"
-  },
-  {
-    q: "How many legs does a spider have?",
-    options: ["6", "8", "10", "12"],
-    answer: "8"
-  },
-  {
-    q: "Which animal is known as the 'King of the Jungle'?",
-    options: ["Tiger", "Lion", "Elephant", "Cheetah"],
-    answer: "Lion"
-  },
-  {
-    q: "What is the capital of France?",
-    options: ["London", "Berlin", "Paris", "Madrid"],
-    answer: "Paris"
-  },
-  {
-    q: "Which planet do we live on?",
-    options: ["Mars", "Venus", "Earth", "Jupiter"],
-    answer: "Earth"
-  }
-];
+// Difficulty-based settings
+const levelSettings = {
+  easy: { time: 20 },
+  mid: { time: 15 },
+  hard: { time: 10 },
+  advanced: { time: 8 }
+};
 
-// easy level side 
-levelButtons.forEach(btn => {
-  btn.addEventListener('click', () => {
+// Example question sets
+const questions = {
+  easy: [
+    { question: "What color is the sky?", options: ["Blue", "Green", "Red", "Yellow"], answer: "Blue" },
+    { question: "How many legs does a spider have?", options: ["6", "8", "10", "12"], answer: "8" },
+    { question: "What planet do we live on?", options: ["Mars", "Earth", "Venus", "Mercury"], answer: "Earth" }
+  ],
+  mid: [
+    { question: "Who wrote 'Hamlet'?", options: ["Shakespeare", "Hemingway", "Austen", "Dickens"], answer: "Shakespeare" },
+    { question: "What is the capital of France?", options: ["Paris", "London", "Berlin", "Madrid"], answer: "Paris" }
+  ],
+  hard: [
+    { question: "What planet is known as the Red Planet?", options: ["Mars", "Venus", "Jupiter", "Saturn"], answer: "Mars" },
+    { question: "Who developed the theory of relativity?", options: ["Einstein", "Newton", "Tesla", "Darwin"], answer: "Einstein" }
+  ],
+  advanced: [
+    { question: "What is the chemical symbol for gold?", options: ["Gd", "Ag", "Au", "Go"], answer: "Au" },
+    { question: "What is the speed of light?", options: ["300,000 km/s", "150,000 km/s", "1,000 km/s", "3,000 km/s"], answer: "300,000 km/s" }
+  ]
+};
+
+// Start quiz
+levels.forEach(btn => {
+  btn.addEventListener("click", () => {
     currentLevel = btn.dataset.level;
-    if (currentLevel === 'easy') {
-      startQuiz(easyQuestions, 'Easy Level ');
-    }
+    currentQuestionIndex = 0;
+    score = 0;
+    gameContainer.classList.add("hidden");
+    quiz.classList.remove("hidden");
+    levelTitle.textContent = `${currentLevel.toUpperCase()} LEVEL`;
+    loadQuestion();
   });
 });
 
-//startong the quiz
-function startQuiz(questions, title) {
-  homeContainer.classList.add('hidden');
-  quizContainer.classList.remove('hidden');
-  levelTitle.textContent = title;
-  currentQuestionIndex = 0;
-  score = 0;
-  loadQuestion(questions);
-}
+// Load a question
+function loadQuestion() {
+  clearInterval(timer);
+  const current = questions[currentLevel][currentQuestionIndex];
+  questionContainer.textContent = current.question;
+  optionsContainer.innerHTML = "";
 
-
-function loadQuestion(questions) {
-  nextBtn.classList.add('hidden');
-  const currentQuestion = questions[currentQuestionIndex];
-  questionContainer.textContent = currentQuestion.q;
-  optionsContainer.innerHTML = '';
-
-  currentQuestion.options.forEach(optionText => {
-    const option = document.createElement('div');
-    option.classList.add('option');
-    option.textContent = optionText;
-    option.addEventListener('click', () => selectAnswer(option, currentQuestion.answer, questions));
-    optionsContainer.appendChild(option);
+  current.options.forEach(opt => {
+    const button = document.createElement("button");
+    button.textContent = opt;
+    button.classList.add("option-btn");
+    button.addEventListener("click", () => selectAnswer(opt));
+    optionsContainer.appendChild(button);
   });
+
+  nextBtn.classList.add("hidden");
+  startTimer();
 }
 
-//options
-function selectAnswer(selectedOption, correctAnswer, questions) {
-  const allOptions = document.querySelectorAll('.option');
-  allOptions.forEach(opt => (opt.style.pointerEvents = 'none'));
+// Countdown timer per question
+function startTimer() {
+  timeLeft = levelSettings[currentLevel].time;
+  const timerDisplay = document.createElement("p");
+  timerDisplay.id = "timer";
+  questionContainer.appendChild(timerDisplay);
+  updateTimerDisplay(timerDisplay);
 
-  if (selectedOption.textContent === correctAnswer) {
-    selectedOption.classList.add('correct');
-    score++;
-  } else {
-    selectedOption.classList.add('wrong');
-    allOptions.forEach(opt => {
-      if (opt.textContent === correctAnswer) opt.classList.add('correct');
-    });
-  }
-
-  nextBtn.classList.remove('hidden');
-  nextBtn.onclick = () => nextQuestion(questions);
+  timer = setInterval(() => {
+    timeLeft--;
+    updateTimerDisplay(timerDisplay);
+    if (timeLeft <= 0) {
+      clearInterval(timer);
+      nextQuestion(); // Move on if time runs out
+    }
+  }, 1000);
 }
 
-//next questions
-function nextQuestion(questions) {
+function updateTimerDisplay(el) {
+  el.textContent = `⏱ Time left: ${timeLeft}s`;
+}
+
+function selectAnswer(selected) {
+  clearInterval(timer);
+  const correct = questions[currentLevel][currentQuestionIndex].answer;
+  if (selected === correct) score++;
+  nextBtn.classList.remove("hidden");
+}
+
+nextBtn.addEventListener("click", nextQuestion);
+
+function nextQuestion() {
+  clearInterval(timer);
   currentQuestionIndex++;
-  if (currentQuestionIndex < questions.length) {
-    loadQuestion(questions);
+  if (currentQuestionIndex < questions[currentLevel].length) {
+    loadQuestion();
   } else {
     showResult();
   }
 }
 
-//the displaying of the answer
 function showResult() {
-  quizContainer.classList.add('hidden');
-  resultContainer.classList.remove('hidden');
-  scoreDisplay.textContent = `You scored ${score} out of 5!`;
+  quiz.classList.add("hidden");
+  result.classList.remove("hidden");
+
+  const total = questions[currentLevel].length;
+  scoreDisplay.innerHTML = `You scored <strong>${score}</strong> / ${total}`;
+
+  // Save to leaderboard
+  setTimeout(() => {
+    const name = prompt("Enter your name for the leaderboard:");
+    if (name) saveHighScore(name, score, currentLevel);
+    displayLeaderboard();
+  }, 500);
 }
 
-homeBtn.addEventListener('click', () => {
-  resultContainer.classList.add('hidden');
-  homeContainer.classList.remove('hidden');
+// Save to localStorage
+function saveHighScore(name, score, level) {
+  const leaderboardKey = "quizLeaderboard";
+  const leaderboard = JSON.parse(localStorage.getItem(leaderboardKey)) || [];
+  leaderboard.push({ name, score, level });
+  leaderboard.sort((a, b) => b.score - a.score);
+  localStorage.setItem(leaderboardKey, JSON.stringify(leaderboard));
+}
+
+// Show leaderboard
+function displayLeaderboard() {
+  const leaderboardKey = "quizLeaderboard";
+  const leaderboard = JSON.parse(localStorage.getItem(leaderboardKey)) || [];
+
+  const leaderboardDiv = document.createElement("div");
+  leaderboardDiv.innerHTML = `
+    <h3>🏆 Leaderboard</h3>
+    <ol>
+      ${leaderboard.slice(0, 5).map(item => `<li>${item.name} - ${item.score} (${item.level})</li>`).join("")}
+    </ol>
+  `;
+  result.appendChild(leaderboardDiv);
+}
+
+homeBtn.addEventListener("click", () => {
+  result.classList.add("hidden");
+  gameContainer.classList.remove("hidden");
+  result.querySelector("div")?.remove(); // remove leaderboard div
 });
+

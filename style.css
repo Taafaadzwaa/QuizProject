@@ -151,3 +151,34 @@ body {
   color: #00e0ff;
   text-shadow: 0 0 10px #00e1ff54;
 }
+#timer {
+  font-weight: bold;
+  color: #d9534f;
+  margin-top: 10px;
+}
+
+.option-btn {
+  display: block;
+  margin: 10px auto;
+  padding: 10px 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  width: 200px;
+  cursor: pointer;
+}
+
+.option-btn:hover {
+  background-color: #e6f7ff;
+}
+
+.result ol {
+  list-style: none;
+  padding: 0;
+}
+
+.result li {
+  background: #f9f9f9;
+  margin: 5px 0;
+  padding: 8px;
+  border-radius: 4px;
+}
