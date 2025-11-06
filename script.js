@@ -34,8 +34,6 @@ const questions = {
     { question: "Which one of the following is a World Heritage Site in South Africa?", options: ["Table Mountain", "uKhahlamba-Drakensberg Park", "Kruger National Park", "Kruger National Park"], answer: "uKhahlamba-Drakensburg Park" },
     { question: "Which document is required for international travel?", options: ["Driver's License", "Passport", "Identity Card", "Voter's Card"], answer: "Passport" },
     { question: "Which province is known for the Kruger National Park?", options: ["Gauteng", "Limpopo", "North west", "Mpumalanga"], answer: "Mpumalanga" }
-    { question: "Which international airport is located in Johannesburg?", options: ["O.R. Tambo International Airport", "King Shaka International Airport", "Lanseria Regional Airport", "Cape Town International Airport"], answer: "O.R. Tambo International Airport" }
-    { question: "What does the abbreviation SAA stand for?", options: ["South African Airlines", "South African Airways", "Southern African Airlines", "South African Aviation "], answer: "South African Airways" }
   ],
   hard: [
     { question: "What planet is known as the Red Planet?", options: ["Mars", "Venus", "Jupiter", "Saturn"], answer: "Mars" },
