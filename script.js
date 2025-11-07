@@ -31,7 +31,7 @@ const questions = {
     { question: "What planet do we live on?", options: ["Mars", "Earth", "Venus", "Mercury"], answer: "Earth" }
   ],
   mid: [
-    { question: "Which one of the following is a World Heritage Site in South Africa?", options: ["Table Mountain", "uKhahlamba-Drakensberg Park", "Kruger National Park", "Kruger National Park"], answer: "uKhahlamba-Drakensburg Park" },
+    { question: "Which one of the following is a World Heritage Site in South Africa?", options: ["Table Mountain", "uKhahlamba-Drakensberg Park", "Kruger National Park", "Kruger National Park"], answer: "uKhahlamba-Drakensberg Park" },
     { question: "Which document is required for international travel?", options: ["Driver's License", "Passport", "Identity Card", "Voter's Card"], answer: "Passport" },
     { question: "Which province is known for the Kruger National Park?", options: ["Gauteng", "Limpopo", "North west", "Mpumalanga"], answer: "Mpumalanga" }
   ],
