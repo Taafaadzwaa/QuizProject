@@ -215,3 +215,10 @@ body {
   background-color: #e42323;
   transition: width 0.3s ease;
 }
+/* Question Container */
+#advanced-question-container {
+  font-size: 1.3rem;
+  margin-bottom: 25px;
+  color: #fff;
+  min-height: 60px;
+}
