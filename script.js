@@ -104,14 +104,15 @@ const questions = {
       answer: "Saturn",
     },
     {
-      question: "What is the world's longest river?",
+      question:
+        "Which philosopher coined the phrase 'I think, therefore I am'?",
       options: [
-        "Amazon River",
-        "Nile River",
-        "Yangtze River",
-        "Mississippi River",
+        "Immanuel Kant",
+        "Friedrich Nietzsche",
+        "René Descartes",
+        "Socrates",
       ],
-      answer: "Nile River",
+      answer: "René Descartes",
     },
   ],
 };
