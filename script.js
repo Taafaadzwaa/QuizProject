@@ -192,6 +192,17 @@ function loadAdvancedQuestion() {
   // Hide next button initially
   document.getElementById("advanced-next-btn").classList.add("hidden");
 
+  if (!document.getElementById("skip-btn")) {
+  const skipBtn = document.createElement("button");
+  skipBtn.id = "skip-btn";
+  skipBtn.textContent = "Skip Question";
+  skipBtn.classList.add("control-btn");
+  skipBtn.style.margin = "10px";
+  skipBtn.addEventListener("click", () => {
+    nextAdvancedQuestion();
+  });
+  document.querySelector(".quiz-controls").appendChild(skipBtn);
+  }
   startTimer();
 }
 
