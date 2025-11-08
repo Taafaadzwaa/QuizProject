@@ -45,6 +45,7 @@ const questions = {
   ]
 };
 
+
 // Start quiz
 levels.forEach(btn => {
   btn.addEventListener("click", () => {
@@ -52,9 +53,17 @@ levels.forEach(btn => {
     currentQuestionIndex = 0;
     score = 0;
     gameContainer.classList.add("hidden");
-    quiz.classList.remove("hidden");
-    levelTitle.textContent = `${currentLevel.toUpperCase()} LEVEL`;
-    loadQuestion();
+    
+    if (currentLevel === "advanced") {
+      // Show ADVANCED quiz section
+      document.querySelector(".advanced-quiz").classList.remove("hidden");
+      loadAdvancedQuestion(); // 
+    } else {
+      // Show Quiz for other levels
+      quiz.classList.remove("hidden");
+      levelTitle.textContent = `${currentLevel.toUpperCase()} LEVEL`;
+      loadQuestion();
+    }
   });
 });
 
@@ -76,13 +85,56 @@ function loadQuestion() {
   nextBtn.classList.add("hidden");
   startTimer();
 }
+function loadAdvancedQuestion() {
+  clearInterval(timer);
+  const current = questions[currentLevel][currentQuestionIndex];
+
+  // Update advanced question container
+  document.getElementById("advanced-question-container").textContent =
+    current.question;
+
+  // Update advanced options container
+  const advancedOptionsContainer = document.getElementById(
+    "advanced-options-container"
+  );
+  advancedOptionsContainer.innerHTML = "";
+
+  current.options.forEach((opt) => {
+    const div = document.createElement("div");
+    div.textContent = opt;
+    div.classList.add("advanced-option");
+    div.addEventListener("click", () => selectAdvancedAnswer(opt));
+    advancedOptionsContainer.appendChild(div);
+  });
+
+  // Update progress bar
+  const progress =
+    (currentQuestionIndex / questions[currentLevel].length) * 100;
+  document.getElementById("advanced-progress").style.width = `${progress}%`;
+
+  // Update question counter
+  document.getElementById("advanced-question-count").textContent = `Question ${
+    currentQuestionIndex + 1
+  } of ${questions[currentLevel].length}`;
+
+  // Hide next button initially
+  document.getElementById("advanced-next-btn").classList.add("hidden");
+
+  startTimer();
+}
 
 // Countdown timer per question
 function startTimer() {
   timeLeft = levelSettings[currentLevel].time;
   const timerDisplay = document.createElement("p");
   timerDisplay.id = "timer";
-  questionContainer.appendChild(timerDisplay);
+  
+  if (currentLevel === "advanced") {
+    document.getElementById("advanced-question-container").appendChild(timerDisplay);
+  } else {
+    questionContainer.appendChild(timerDisplay);
+  }
+  
   updateTimerDisplay(timerDisplay);
 
   timer = setInterval(() => {
@@ -90,7 +142,11 @@ function startTimer() {
     updateTimerDisplay(timerDisplay);
     if (timeLeft <= 0) {
       clearInterval(timer);
-      nextQuestion(); // Move on if time runs out
+      if (currentLevel === "advanced") {
+        nextAdvancedQuestion();
+      } else {
+        nextQuestion();
+      }
     }
   }, 1000);
 }
@@ -105,8 +161,70 @@ function selectAnswer(selected) {
   if (selected === correct) score++;
   nextBtn.classList.remove("hidden");
 }
+function selectAdvancedAnswer(selected) {
+  clearInterval(timer);
+  const correct = questions[currentLevel][currentQuestionIndex].answer;
+  const options = document.querySelectorAll(".advanced-option");
+
+  // Color feedback for correct/incorrect
+  options.forEach((option) => {
+    if (option.textContent === correct) {
+      option.classList.add("correct");
+    } else if (option.textContent === selected && selected !== correct) {
+      option.classList.add("wrong");
+    }
+    option.style.pointerEvents = "none"; // Disable further clicks
+  });
+
+  if (selected === correct) score++;
+
+  // Show next button
+  document.getElementById("advanced-next-btn").classList.remove("hidden");
+}
+
+
 
 nextBtn.addEventListener("click", nextQuestion);
+// Advanced section navigation
+document
+  .getElementById("advanced-next-btn")
+  .addEventListener("click", nextAdvancedQuestion);
+    
+  document
+    .getElementById("advanced-prev-btn")
+    .addEventListener("click", prevAdvancedQuestion);
+
+function nextAdvancedQuestion() {
+  clearInterval(timer);
+  currentQuestionIndex++;
+  if (currentQuestionIndex < questions[currentLevel].length) {
+    loadAdvancedQuestion();
+  } else {
+    showAdvancedResult();
+  }
+}
+
+function prevAdvancedQuestion() {
+  if (currentQuestionIndex > 0) {
+    currentQuestionIndex--;
+    loadAdvancedQuestion();
+  }
+}
+
+function showAdvancedResult() {
+  document.querySelector(".advanced-quiz").classList.add("hidden");
+  result.classList.remove("hidden");
+
+  const total = questions[currentLevel].length;
+  scoreDisplay.innerHTML = `You scored <strong>${score}</strong> / ${total}`;
+
+  // Save to leaderboard
+  setTimeout(() => {
+    const name = prompt("Enter your name for the leaderboard:");
+    if (name) saveHighScore(name, score, currentLevel);
+    displayLeaderboard();
+  }, 500);
+}
 
 function nextQuestion() {
   clearInterval(timer);
