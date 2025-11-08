@@ -23,26 +23,97 @@ const levelSettings = {
   advanced: { time: 8 }
 };
 
-// Example question sets
+// Question sets
 const questions = {
   easy: [
-    { question: "What color is the sky?", options: ["Blue", "Green", "Red", "Yellow"], answer: "Blue" },
-    { question: "How many legs does a spider have?", options: ["6", "8", "10", "12"], answer: "8" },
-    { question: "What planet do we live on?", options: ["Mars", "Earth", "Venus", "Mercury"], answer: "Earth" }
+    {
+      question: "What color is the sky?",
+      options: ["Blue", "Green", "Red", "Yellow"],
+      answer: "Blue",
+    },
+    {
+      question: "How many legs does a spider have?",
+      options: ["6", "8", "10", "12"],
+      answer: "8",
+    },
+    {
+      question: "What planet do we live on?",
+      options: ["Mars", "Earth", "Venus", "Mercury"],
+      answer: "Earth",
+    },
   ],
   mid: [
-    { question: "Which one of the following is a World Heritage Site in South Africa?", options: ["Table Mountain", "uKhahlamba-Drakensberg Park", "Kruger National Park", "Kruger National Park"], answer: "uKhahlamba-Drakensberg Park" },
-    { question: "Which document is required for international travel?", options: ["Driver's License", "Passport", "Identity Card", "Voter's Card"], answer: "Passport" },
-    { question: "Which province is known for the Kruger National Park?", options: ["Gauteng", "Limpopo", "North west", "Mpumalanga"], answer: "Mpumalanga" }
+    {
+      question:
+        "Which one of the following is a World Heritage Site in South Africa?",
+      options: [
+        "Table Mountain",
+        "uKhahlamba-Drakensberg Park",
+        "Kruger National Park",
+        "Kruger National Park",
+      ],
+      answer: "uKhahlamba-Drakensberg Park",
+    },
+    {
+      question: "Which document is required for international travel?",
+      options: [
+        "Driver's License",
+        "Passport",
+        "Identity Card",
+        "Voter's Card",
+      ],
+      answer: "Passport",
+    },
+    {
+      question: "Which province is known for the Kruger National Park?",
+      options: ["Gauteng", "Limpopo", "North west", "Mpumalanga"],
+      answer: "Mpumalanga",
+    },
   ],
   hard: [
-    { question: "What planet is known as the Red Planet?", options: ["Mars", "Venus", "Jupiter", "Saturn"], answer: "Mars" },
-    { question: "Who developed the theory of relativity?", options: ["Einstein", "Newton", "Tesla", "Darwin"], answer: "Einstein" }
+    {
+      question: "What planet is known as the Red Planet?",
+      options: ["Mars", "Venus", "Jupiter", "Saturn"],
+      answer: "Mars",
+    },
+    {
+      question: "Who developed the theory of relativity?",
+      options: ["Einstein", "Newton", "Tesla", "Darwin"],
+      answer: "Einstein",
+    },
   ],
   advanced: [
-    { question: "What is the chemical symbol for gold?", options: ["Gd", "Ag", "Au", "Go"], answer: "Au" },
-    { question: "What is the speed of light?", options: ["300,000 km/s", "150,000 km/s", "1,000 km/s", "3,000 km/s"], answer: "300,000 km/s" }
-  ]
+    {
+      question: "What is the smallest country in the world by land area?",
+      options: ["Monaco", "Vatican City", "San Marino", "Liechtenstein"],
+      answer: "Vatican City",
+    },
+    {
+      question: "Which element has the highest melting point?",
+      options: ["Tungsten", "Carbon", "Osmium", "Rhenium"],
+      answer: "Carbon",
+    },
+    {
+      question: "What is the only mammal capable of true flight?",
+      options: ["Flying squirrel", "Bat", "Colugo", "Sugar glider"],
+      answer: "Bat",
+    },
+    {
+      question: "Which planet has the most moons in our solar system?",
+      options: ["Jupiter", "Saturn", "Uranus", "Neptune"],
+      answer: "Saturn",
+    },
+    {
+      question: "What is the world's longest river?",
+      options: [
+        "Amazon River",
+        "Nile River",
+        "Yangtze River",
+        "Mississippi River",
+      ],
+      answer: "Nile River",
+    },
+  ],
 };
 
 
