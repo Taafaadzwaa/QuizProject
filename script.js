@@ -65,24 +65,11 @@ const quizData = {
     { question: "What is the currency of Botswana", options: ["Pula", "Rand", "Euro", "Dollar"], answer: "Pula" },
   ],
   hard: [
-<<<<<<< HEAD
     {
       question: "Who developed the theory of relativity?",
       options: ["Newton", "Tesla", "Einstein", "Bohr"],
       answer: "Einstein",
     },
-=======
-    { question: "Who developed the theory of relativity?", options: ["Newton", "Tesla", "Einstein", "Bohr"], answer: "Einstein" },
-    { question: "What is the chemical symbol for gold?", options: ["Ag", "Gd", "Au", "Ga"], answer: "Au" },
-    { question: "Which planet has the most moons?", options: ["Earth", "Jupiter", "Saturn", "Neptune"], answer: "Saturn" },
-    { question: "Who painted the ceiling of the Sistine Chapel?", options: ["Leonardo da Vinci", "Michelangelo", "Raphael", "Donatello"], answer: "Michelangelo" },
-    { question: "What is the powerhouse of the cell?", options: ["Nucleus", "Mitochondria", "Ribosome", "Golgi Apparatus"], answer: "Mitochondria" },
-    { question: "What is the hardest natural substance on Earth?", options: ["Gold", "Iron", "Diamond", "Quartz"], answer: "Diamond" },
-    { question: "In computing, what does 'CPU' stand for?", options: ["Central Process Unit", "Central Processing Unit", "Computer Personal Unit", "Central Processor Utility"], answer: "Central Processing Unit" },
-    { question: "What is the capital city of Canada?", options: ["Toronto", "Vancouver", "Ottawa", "Montreal"], answer: "Ottawa" },
-    { question: "Who wrote 'Pride and Prejudice'?", options: ["Charlotte Brontë", "Jane Austen", "Emily Brontë", "Mary Shelley"], answer: "Jane Austen" },
-    { question: "What is the smallest prime number?", options: ["0", "1", "2", "3"], answer: "2" }
->>>>>>> c5e837d1a77e0d00785da0283de96a75be489d15
   ],
   advanced: [
     {
