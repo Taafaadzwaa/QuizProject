@@ -18,39 +18,11 @@ let currentQuestions = [];
 // Example questions for the quiz
 const quizData = {
   easy: [
-<<<<<<< HEAD
-    {
-      question: "What color is a ripe banana?",
-      options: ["Blue", "Red", "Green", "Yellow"],
-      answer: "Yellow",
-    },
-    {
-      question: "How many legs does a spider have?",
-      options: ["6", "8", "10", "12"],
-      answer: "8",
-    },
-    {
-      question: "What planet do we live on?",
-      options: ["Mars", "Earth", "Jupiter", "Venus"],
-      answer: "Earth",
-    },
-    {
-      question: "Which animal is known as the 'King of the Jungle'?",
-      options: ["Tiger", "Lion", "Elephant", "Cheetah"],
-      answer: "Lion",
-    },
-    {
-      question: "What is the capital of France?",
-      options: ["London", "Berlin", "Paris", "Madrid"],
-      answer: "Paris",
-    },
-=======
     { question: "What color is a ripe banana?", options: ["Blue", "Red", "Green", "Yellow"], answer: "Yellow" },
     { question: "How many legs does a spider have?", options: ["6", "8", "10", "12"], answer: "8" },
     { question: "What planet do we live on?", options: ["Mars", "Earth", "Jupiter", "Venus"], answer: "Earth" },
     { question: "Which animal is known as the 'King of the Jungle'?", options: ["Tiger", "Lion", "Elephant", "Cheetah"], answer: "Lion" },
     { question: "What is the capital of France?" , options : ["London", "Berlin", "Paris", "Madrid"], answer: "Paris"}
->>>>>>> c5e837d1a77e0d00785da0283de96a75be489d15
   ],
   mid: [
     {
