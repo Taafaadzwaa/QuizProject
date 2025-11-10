@@ -1,4 +1,4 @@
-const levels = document.querySelectorAll(".level-btn");
+const levels = document.querySelectorAll(".level-btn"); 
 const homeScreen = document.querySelector(".home-screen");
 const quizContainer = document.querySelector(".quiz");
 const resultContainer = document.querySelector(".result");
@@ -23,7 +23,6 @@ const quizData = {
     { question: "What planet do we live on?", options: ["Mars", "Earth", "Jupiter", "Venus"], answer: "Earth" },
     { question: "Which animal is known as the 'King of the Jungle'?", options: ["Tiger", "Lion", "Elephant", "Cheetah"], answer: "Lion" },
     { question: "What is the capital of France?" , options : ["London", "Berlin", "Paris", "Madrid"], answer: "Paris"}
-   
   ],
   mid: [
     { question: "How many countries are in the world", options: ["100", "200", "195", "80"], answer: "195" },
@@ -34,6 +33,15 @@ const quizData = {
   ],
   hard: [
     { question: "Who developed the theory of relativity?", options: ["Newton", "Tesla", "Einstein", "Bohr"], answer: "Einstein" },
+    { question: "What is the chemical symbol for gold?", options: ["Ag", "Gd", "Au", "Ga"], answer: "Au" },
+    { question: "Which planet has the most moons?", options: ["Earth", "Jupiter", "Saturn", "Neptune"], answer: "Saturn" },
+    { question: "Who painted the ceiling of the Sistine Chapel?", options: ["Leonardo da Vinci", "Michelangelo", "Raphael", "Donatello"], answer: "Michelangelo" },
+    { question: "What is the powerhouse of the cell?", options: ["Nucleus", "Mitochondria", "Ribosome", "Golgi Apparatus"], answer: "Mitochondria" },
+    { question: "What is the hardest natural substance on Earth?", options: ["Gold", "Iron", "Diamond", "Quartz"], answer: "Diamond" },
+    { question: "In computing, what does 'CPU' stand for?", options: ["Central Process Unit", "Central Processing Unit", "Computer Personal Unit", "Central Processor Utility"], answer: "Central Processing Unit" },
+    { question: "What is the capital city of Canada?", options: ["Toronto", "Vancouver", "Ottawa", "Montreal"], answer: "Ottawa" },
+    { question: "Who wrote 'Pride and Prejudice'?", options: ["Charlotte Brontë", "Jane Austen", "Emily Brontë", "Mary Shelley"], answer: "Jane Austen" },
+    { question: "What is the smallest prime number?", options: ["0", "1", "2", "3"], answer: "2" }
   ],
   advanced: [
     { question: "What year did the first man land on the moon?", options: ["1965", "1969", "1972", "1975"], answer: "1969" },
@@ -117,3 +125,4 @@ homeBtn.addEventListener("click", () => {
   resultContainer.classList.add("hidden");
   homeScreen.classList.remove("hidden");
 });
+
