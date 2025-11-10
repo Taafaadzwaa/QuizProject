@@ -3,55 +3,37 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>General knowledge quiz game</title>
+    <title>General Knowledge Quiz Game</title>
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <div class="game-container">
-      <h1 class="game-title">General knowledge quiz</h1>
-      <p class="subtitle">Choose your challenge and test your brain power!</p>
+    <div class="container home-screen">
+      <h1 class="title">General Knowledge Quiz</h1>
+      <p class="subtitle">Choose your level and test your brain power!</p>
 
-      <!-- Buttons for levels , Taffi  -->
       <div class="levels">
-        <button class="level-btn easy" data-level="easy">EASY</button>
-        <button class="level-btn mid" data-level="mid">Mid</button>
-        <button class="level-btn hard" data-level="hard">HARD</button>
-        <button class="level-btn advanced" data-level="advanced">
-          ADVANCED
-        </button>
+        <button class="level-btn" data-level="easy">Easy</button>
+        <button class="level-btn" data-level="mid">Mid</button>
+        <button class="level-btn" data-level="hard">Hard</button>
+        <button class="level-btn" data-level="advanced">Advanced</button>
       </div>
     </div>
 
-    <!-- Quiz part-->
-    <div class="quiz hidden">
+    <div class="container quiz hidden">
       <h2 id="level-title"></h2>
       <div id="question-container"></div>
       <div id="options-container"></div>
-      <button id="next-btn" class="hidden">Next</button>
+
+      <div class="quiz-controls">
+        <button id="prev-btn" class="nav-btn">Previous</button>
+        <button id="next-btn" class="nav-btn">Next</button>
+      </div>
     </div>
 
-    <!-- the results displayed -->
-    <div class="result hidden">
+    <div class="container result hidden">
       <h2>Your Score</h2>
       <p id="score"></p>
-      <button id="home-btn">Back to Home</button>
-    </div>
-
-    <!--Advanced Quizz Section Zandile -->
-    <div class="advanced-quiz hidden">
-      <h2> Advanced Level Challenge</h2>
-<div class="progress-bar"> 
-  <div class="progress" id="advanced-progress"></div>
-</div>
-<div id="advanced-question-container"> </div>
-<div id="advanced-options-container" class="options-grid"> </div>
-
-<div class="quiz-controls">
-  <button id="advanced-prev-btn" class="control-btn"> Previous</button>
-  <span id="advanced-question-count">Question 1 of 5 </span>
-  <button id="advanced-next-btn" class="control-btn"> Next</button>
-
-</div>
+      <button id="home-btn" class="nav-btn">Back to Home</button>
     </div>
 
     <script src="script.js"></script>
