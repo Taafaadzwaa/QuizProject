@@ -18,22 +18,74 @@ let currentQuestions = [];
 // Example questions for the quiz
 const quizData = {
   easy: [
-    { question: "What color is a ripe banana?", options: ["Blue", "Red", "Green", "Yellow"], answer: "Yellow" },
-    { question: "How many legs does a spider have?", options: ["6", "8", "10", "12"], answer: "8" },
-    { question: "What planet do we live on?", options: ["Mars", "Earth", "Jupiter", "Venus"], answer: "Earth" },
-    { question: "Which animal is known as the 'King of the Jungle'?", options: ["Tiger", "Lion", "Elephant", "Cheetah"], answer: "Lion" },
-    { question: "What is the capital of France?" , options : ["London", "Berlin", "Paris", "Madrid"], answer: "Paris"}
-   
+    {
+      question: "What color is a ripe banana?",
+      options: ["Blue", "Red", "Green", "Yellow"],
+      answer: "Yellow",
+    },
+    {
+      question: "How many legs does a spider have?",
+      options: ["6", "8", "10", "12"],
+      answer: "8",
+    },
+    {
+      question: "What planet do we live on?",
+      options: ["Mars", "Earth", "Jupiter", "Venus"],
+      answer: "Earth",
+    },
+    {
+      question: "Which animal is known as the 'King of the Jungle'?",
+      options: ["Tiger", "Lion", "Elephant", "Cheetah"],
+      answer: "Lion",
+    },
+    {
+      question: "What is the capital of France?",
+      options: ["London", "Berlin", "Paris", "Madrid"],
+      answer: "Paris",
+    },
   ],
   mid: [
-    { question: "What is the capital of Germany?", options: ["Berlin", "London", "Paris", "Rome"], answer: "Paris" },
+    {
+      question: "What is the capital of Germany?",
+      options: ["Berlin", "London", "Paris", "Rome"],
+      answer: "Paris",
+    },
   ],
   hard: [
-    { question: "Who developed the theory of relativity?", options: ["Newton", "Tesla", "Einstein", "Bohr"], answer: "Einstein" },
+    {
+      question: "Who developed the theory of relativity?",
+      options: ["Newton", "Tesla", "Einstein", "Bohr"],
+      answer: "Einstein",
+    },
   ],
   advanced: [
-    { question: "What year did the first man land on the moon?", options: ["1965", "1969", "1972", "1975"], answer: "1969" },
-  ]
+    {
+      question: "Which country has the most time zones in the world?",
+      options: ["United States", "Russia", "France", "China"],
+      answer: "France",
+    },
+    {
+      question: "Which element has the highest melting point?",
+      options: ["Tungsten", "Carbon", "Osmium", "Titanium"],
+      answer: "Carbon",
+    },
+    {
+      question:
+        "What is the most spoken language in the world by native speakers?",
+      options: ["English", "Spanish", "Hindi", "Mandarin Chinese"],
+      answer: "Mandarin Chinese",
+    },
+    {
+      question: "Which blood type is known as the universal donor?",
+      options: ["A+", "O-", "AB+", "B-"],
+      answer: "O-",
+    },
+    {
+      question: "Which country invented tea?",
+      options: ["India", "Japan", "China", "England"],
+      answer: "China",
+    },
+  ],
 };
 
 // Start level
