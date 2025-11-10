@@ -26,7 +26,7 @@ const quizData = {
    
   ],
   mid: [
-    { question: "What is the capital of France?", options: ["Berlin", "London", "Paris", "Rome"], answer: "Paris" },
+    { question: "What is the capital of Germany?", options: ["Berlin", "London", "Paris", "Rome"], answer: "Paris" },
   ],
   hard: [
     { question: "Who developed the theory of relativity?", options: ["Newton", "Tesla", "Einstein", "Bohr"], answer: "Einstein" },
