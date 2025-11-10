@@ -50,6 +50,11 @@ const quizData = {
       options: ["Berlin", "London", "Paris", "Rome"],
       answer: "Paris",
     },
+    { question: "How many countries are in the world", options: ["100", "200", "195", "80"], answer: "195" },
+    { question: "How many colours does the South African flag have", options: ["8", "6", "12", "9"], answer: "6" },
+    { question: "Which airport is located in the Eastern Cape", options: ["King Shaka International Airport", "Lanseria Regional Airport", "Chief Dawid Stuurman International Airport", "O.R. Tambo International Airport"], answer: "Chief Dawid Stuurman International Airport" },
+    { question: "Which document is required for international travel", options: ["Identity Document", "Passport", "Driver's License", "Banking Card"], answer: "Passport" },
+    { question: "What is the currency of Botswana", options: ["Pula", "Rand", "Euro", "Dollar"], answer: "Pula" },
   ],
   hard: [
     {
